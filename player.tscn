@@ -1,0 +1,122 @@
+[gd_scene load_steps=21 format=3 uid="uid://0wft63sif4x"]
+
+[ext_resource type="Script" path="res://PlayerController.gd" id="1_umwrg"]
+[ext_resource type="Texture2D" uid="uid://b6t1cwlynl3rn" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 1 Idle.PNG" id="2_t63w2"]
+[ext_resource type="Texture2D" uid="uid://bnlcbvgtgrgtr" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 2 Idle.PNG" id="3_mj5od"]
+[ext_resource type="Texture2D" uid="uid://c5p8p4x0oxoig" path="res://art/input prompts/Tilemap/tilemap_white.png" id="3_xfcxf"]
+[ext_resource type="Texture2D" uid="uid://d1pf4hthnj1bs" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 1 Walk.PNG" id="4_4mwa8"]
+[ext_resource type="Texture2D" uid="uid://dkhkbmimu4g5f" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 1 Jump Loop.PNG" id="4_vcpu2"]
+[ext_resource type="Texture2D" uid="uid://dlrdfnn64il8f" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 1 Jump.PNG" id="4_xlwrq"]
+[ext_resource type="Texture2D" uid="uid://bo55r6j5eg1v4" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 2 Jump.PNG" id="5_a8qgv"]
+[ext_resource type="Texture2D" uid="uid://0yjewr3nbwej" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 2 Walk.PNG" id="5_mlebp"]
+[ext_resource type="Texture2D" uid="uid://uynwk1v25n4d" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 2 Jump Loop.PNG" id="5_n8f60"]
+[ext_resource type="Texture2D" uid="uid://t4ypd50fnv7k" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 3 Walk.PNG" id="6_kn7rb"]
+[ext_resource type="Texture2D" uid="uid://bis4f6p2c43eh" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 3 Jump Loop.PNG" id="6_uf4v1"]
+[ext_resource type="Texture2D" uid="uid://do4io3y702ssh" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 3 Jump.PNG" id="6_ykb7m"]
+[ext_resource type="Texture2D" uid="uid://c3qan44513vlb" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 4 Walk.PNG" id="7_3ssbf"]
+[ext_resource type="Texture2D" uid="uid://rycb4ktd42oo" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 4 Jump Loop.PNG" id="7_udmxr"]
+[ext_resource type="Texture2D" uid="uid://by7vfffhqd1a5" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 5 Jump Loop.PNG" id="8_p6c8r"]
+[ext_resource type="AudioStream" uid="uid://bvral7plrhsa4" path="res://audio/Footstep_Jump/Jump/SFX_Jump_Generic.wav" id="17_6r6r3"]
+[ext_resource type="AudioStream" uid="uid://cjggj3g8evl05" path="res://audio/Footstep_Jump/Jump/SFX_Jump_Land_Generic.wav" id="17_s1xbx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_etorx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t63w2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mj5od")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vcpu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n8f60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uf4v1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_udmxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p6c8r")
+}],
+"loop": true,
+"name": &"JumpLoop",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xlwrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a8qgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ykb7m")
+}],
+"loop": false,
+"name": &"JumpStart",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4mwa8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mlebp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kn7rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3ssbf")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3rrpd"]
+radius = 69.0
+height = 138.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 13
+script = ExtResource("1_umwrg")
+
+[node name="Main Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_etorx")
+animation = &"Idle"
+autoplay = "Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3rrpd")
+
+[node name="InputPrompt" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -125)
+scale = Vector2(5, 5)
+texture = ExtResource("3_xfcxf")
+offset = Vector2(0.5, 0)
+hframes = 34
+vframes = 24
+frame = 87
+
+[node name="JumpLand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_s1xbx")
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_6r6r3")
+
+[connection signal="animation_finished" from="Main Sprite" to="." method="_on_main_sprite_animation_finished"]

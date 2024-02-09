@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://bupx3ss8ajhlu"]
+
+[ext_resource type="Texture2D" uid="uid://dmdu1f1om7sfa" path="res://art/bIRD/BirdSprite.png" id="1_sxscd"]
+[ext_resource type="Script" path="res://birdANIMATED.gd" id="2_na0x2"]
+[ext_resource type="AudioStream" uid="uid://bc1p3tut06vj0" path="res://audio/squawks.wav" id="3_43blu"]
+[ext_resource type="AudioStream" uid="uid://dbv7kmrddqmrg" path="res://audio/flapping.wav" id="4_putyc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3d32"]
+atlas = ExtResource("1_sxscd")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm51m"]
+atlas = ExtResource("1_sxscd")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjjo6"]
+atlas = ExtResource("1_sxscd")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe5ca"]
+atlas = ExtResource("1_sxscd")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umjvu"]
+atlas = ExtResource("1_sxscd")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vugnm"]
+atlas = ExtResource("1_sxscd")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bg7t"]
+atlas = ExtResource("1_sxscd")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3mmf"]
+atlas = ExtResource("1_sxscd")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfo05"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3d32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm51m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjjo6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe5ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umjvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vugnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bg7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3mmf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Bird" type="AnimatedSprite2D"]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_gfo05")
+autoplay = "default"
+frame_progress = 0.432546
+script = ExtResource("2_na0x2")
+
+[node name="Squawking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_43blu")
+max_distance = 500.0
+attenuation = 0.784584
+
+[node name="Wing Flapping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_putyc")
+autoplay = true
+max_distance = 500.0
+bus = &"Wing Flaps"

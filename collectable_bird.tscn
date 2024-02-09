@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://7t8k2gri4a4d"]
+
+[ext_resource type="Script" path="res://collectable_bird.gd" id="1_1o2dc"]
+[ext_resource type="PackedScene" uid="uid://hd2aghfe7dfn" path="res://Interaction/interactionArea.tscn" id="1_kok36"]
+[ext_resource type="Texture2D" uid="uid://dmdu1f1om7sfa" path="res://art/bIRD/BirdSprite.png" id="2_fuunc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8mkq"]
+atlas = ExtResource("2_fuunc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5bua"]
+atlas = ExtResource("2_fuunc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_typ2j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8mkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5bua")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_shmpf"]
+radius = 23.5372
+
+[node name="Collectable Bird" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_1o2dc")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_typ2j")
+autoplay = "default"
+frame_progress = 0.449008
+
+[node name="interactionArea" parent="." instance=ExtResource("1_kok36")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactionArea"]
+shape = SubResource("CircleShape2D_shmpf")

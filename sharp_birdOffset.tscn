@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://tgq1qd1wp3ha"]
+
+[ext_resource type="Texture2D" uid="uid://by234k7ox50a8" path="res://art/bIRD/SharpBird1.png" id="1_2oraf"]
+[ext_resource type="Texture2D" uid="uid://byybcfeolfted" path="res://art/bIRD/SharpBird2.png" id="2_y7qse"]
+[ext_resource type="PackedScene" uid="uid://ljqu4t7rdr3a" path="res://killbox.tscn" id="3_4wkf8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbxoh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2oraf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y7qse")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_w8tb7"]
+resource_name = "done"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:speed_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_1s25r"]
+resource_name = "idle"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1.41421, 1.46409),
+"update": 0,
+"values": [Vector2(0, -15), Vector2(0, 15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.0872665, 0.0872665]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/AnimatedSprite2D:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.6),
+"transitions": PackedFloat32Array(12.5533, 3.24901),
+"update": 0,
+"values": [1.25, 2.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ti428"]
+_data = {
+"done": SubResource("Animation_w8tb7"),
+"idle": SubResource("Animation_1s25r")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rw3qu"]
+radius = 12.0
+
+[node name="SharpBirdOffset" type="Node2D"]
+position = Vector2(0, -8)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, 15)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_jbxoh")
+autoplay = "default"
+frame_progress = 0.107547
+speed_scale = 1.37975
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+root_node = NodePath("../..")
+autoplay = "idle"
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_ti428")
+}
+
+[node name="Killbox" parent="Node2D" instance=ExtResource("3_4wkf8")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Killbox"]
+shape = SubResource("CircleShape2D_rw3qu")

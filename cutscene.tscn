@@ -1,0 +1,716 @@
+[gd_scene load_steps=20 format=3 uid="uid://clbggqmb2lxvv"]
+
+[ext_resource type="Texture2D" uid="uid://bj3ebh2c2j6y5" path="res://art/tree.png" id="1_qjl3r"]
+[ext_resource type="Texture2D" uid="uid://d2c8rbol2671q" path="res://art/background/parallax-forest-back-trees.png" id="2_gsunm"]
+[ext_resource type="Texture2D" uid="uid://dr7vxx0i0rlld" path="res://art/background/parallax-forest-middle-trees.png" id="3_yg7m5"]
+[ext_resource type="Texture2D" uid="uid://qgypfgmt878l" path="res://art/background/parallax-forest-front-trees.png" id="4_jc0ym"]
+[ext_resource type="Texture2D" uid="uid://beypyl0jh2knp" path="res://art/background/parallax-forest-lights.png" id="5_bypnu"]
+[ext_resource type="Texture2D" uid="uid://b6t1cwlynl3rn" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 1 Idle.PNG" id="6_fbsce"]
+[ext_resource type="Texture2D" uid="uid://bnlcbvgtgrgtr" path="res://art/bIRD/PlayerBird/PlayerBird/Frame 2 Idle.PNG" id="7_eqwwg"]
+[ext_resource type="FontFile" uid="uid://c0qoc15ue0std" path="res://art/BirdDay-jEmP7.ttf" id="8_31vsx"]
+[ext_resource type="Texture2D" uid="uid://dmdu1f1om7sfa" path="res://art/bIRD/BirdSprite.png" id="8_dvsvp"]
+[ext_resource type="FontFile" uid="uid://nn6s6pjj8gr1" path="res://art/KingBird-VG1JB.otf" id="8_xdkon"]
+[ext_resource type="Texture2D" uid="uid://dhvraw8no6oy3" path="res://art/speechBubble.png" id="9_y5abe"]
+[ext_resource type="AudioStream" uid="uid://bc1p3tut06vj0" path="res://audio/squawks.wav" id="12_l2mp3"]
+[ext_resource type="Script" path="res://CutsceneAudioHandler.gd" id="13_kbiv8"]
+
+[sub_resource type="Animation" id="Animation_vfxb8"]
+resource_name = "Cutscene"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 5.5, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Hey", "Do you want to know something FUNNY?", "If feathers are ticklish...", "And birds have feathers...", "..."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.2, 5.7, 8.5, 12, 14.8, 15.1, 15.3, 15.6, 15.8, 16.1, 16.3, 16.6, 16.8, 17.1, 17.3, 17.6, 17.8, 18.1, 18.3, 18.6, 18.8, 19, 19.2, 19.5, 19.7, 20, 20.2, 20.5, 20.7, 21, 21.2, 21.5, 21.7, 22, 22.2, 22.5, 22.7),
+"transitions": PackedFloat32Array(11.3137, 10.1965, 0, 1, 17.1484, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(20, 20), Vector2(8, 8), Vector2(7, 7), Vector2(9, 9), Vector2(7, 7), Vector2(9, 9), Vector2(7, 7), Vector2(9, 9), Vector2(7, 7), Vector2(9, 9), Vector2(7, 7), Vector2(9, 9), Vector2(7, 7), Vector2(9, 9), Vector2(7, 7), Vector2(9, 9), Vector2(7, 7), Vector2(9, 9), Vector2(7, 7), Vector2(9, 9), Vector2(7, 7), Vector2(9, 9), Vector2(7, 7), Vector2(9, 9), Vector2(7, 7), Vector2(8.5, 8.5), Vector2(7, 7), Vector2(8.5, 8.5), Vector2(7, 7), Vector2(8.5, 8.5), Vector2(7.5, 7.5), Vector2(8.5, 8.5), Vector2(7.5, 7.5), Vector2(8.5, 8.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.5, 12),
+"transitions": PackedFloat32Array(1, 0.420448, 1),
+"update": 0,
+"values": [Vector2(1422, -1434), Vector2(1422, -1434), Vector2(1470, -1434)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 11.6, 11.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ParallaxBackground/CanvasModulate:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 8.5, 12, 15, 15.2, 15.4, 15.6, 15.8, 16.4, 16.7, 17.2, 17.5, 17.7, 17.9, 18.1, 18.4, 18.6, 18.8, 19, 19.2, 20),
+"transitions": PackedFloat32Array(1, -2, 38.0546, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.152941, 0.0352941, 0, 1), Color(0.662745, 0.929412, 0.647059, 1), Color(0.560784, 0.941176, 0.772549, 1), Color(0.615686, 0.905882, 0.937255, 1), Color(0.717647, 0.87451, 0.964706, 1), Color(0.811765, 0.843137, 0.972549, 1), Color(0.996078, 0.780392, 0.858824, 1), Color(0.968627, 0.807843, 0.776471, 1), Color(0.968627, 0.819608, 0.658824, 1), Color(0.72549, 0.921569, 0.552941, 1), Color(0.619608, 0.941176, 0.627451, 1), Color(0.537255, 0.945098, 0.803922, 1), Color(0.631373, 0.901961, 0.968627, 1), Color(0.662745, 0.929412, 0.647059, 1), Color(0.560784, 0.941176, 0.772549, 1), Color(0.615686, 0.905882, 0.937255, 1), Color(0.717647, 0.87451, 0.964706, 1), Color(0.811765, 0.843137, 0.972549, 1), Color(0, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bird:rotation")
+tracks/5/interp = 4
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(7.4, 8, 14.9, 15.1, 15.3, 15.5, 15.7, 15.9, 16.1, 16.3, 16.5, 16.7, 16.9, 17.1, 17.3, 17.5, 17.7, 17.9, 18.1, 18.3, 18.5, 18.7, 18.9, 19.1, 19.3, 19.5, 19.7),
+"transitions": PackedFloat32Array(1, 284.05, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera2D:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(14.9, 15.1, 15.3, 15.5, 15.7, 16, 16.2, 16.4, 16.6, 16.8, 17, 17.2, 17.4, 17.7, 17.9, 18.1, 18.3, 18.5, 18.7, 18.9, 19.1, 19.4, 19.6, 19.8, 20, 20.2, 20.4, 20.6, 20.8, 21.1, 21.3, 21.5, 21.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626, -0.139626, 0.139626]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Bird/Sqauwk1:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(14.9, 16.1, 16.3, 17.7, 17.9, 19.3, 19.5, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 0, 0.70711, 1),
+"update": 0,
+"values": [Vector2(-40.1665, -13.3667), Vector2(-40.167, -50), Vector2(-40.1665, -13.3667), Vector2(-40.167, -50), Vector2(-40.1665, -13.3667), Vector2(-40.167, -50), Vector2(-40.1665, -13.3667), Vector2(-40.167, -50)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Bird/Sqauwk1:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(14.7, 14.9, 15.5, 16.3, 17.1, 17.9, 18.7, 19.5),
+"transitions": PackedFloat32Array(0, 1, 0, 1, 0, 1, 0, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Bird/Squawk2:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(15.3, 16.5, 16.6, 18.1, 18.2, 19.8, 20, 20.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-38.3062, -12.4524), Vector2(-38.306, -50), Vector2(-38.3062, -12.4524), Vector2(-38.306, -50), Vector2(-38.3062, -12.4524), Vector2(-38.306, -50), Vector2(-38.3062, -12.4524), Vector2(-38.306, -50)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Bird/Squawk2:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(15.1, 15.3, 15.9, 16.6, 17.2, 18.2, 18.8, 20, 20.5),
+"transitions": PackedFloat32Array(0, 1, 0, 1, 0, 1, 0, 1, 0),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Bird/Squawk3:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(16, 17.4, 17.5, 18.7, 18.8, 20.3, 20.4, 21.1),
+"transitions": PackedFloat32Array(1, 0, 1, 0, 1, 0, 1, 1),
+"update": 0,
+"values": [Vector2(-40.1665, -13.3667), Vector2(-40.167, -50), Vector2(-40.1665, -13.3667), Vector2(-40.167, -50), Vector2(-40.1665, -13.3667), Vector2(-40.167, -50), Vector2(-40.1665, -13.3667), Vector2(-40.167, -50)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Bird/Squawk3:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(15.8, 16, 16.6, 17.5, 18.1, 18.8, 19.4, 20.4, 21),
+"transitions": PackedFloat32Array(1, 1, 0, 1, 0, 1, 0, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SpeechBubble:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 14.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("ParallaxBackground/CanvasModulate:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(14.6, 15, 19.7, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.478431), Color(1, 1, 1, 0.478431), Color(1, 1, 1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("ColorRect:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(19.7, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Bird:animation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 10.1, 14.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"default", &"stillframe", &"default"]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("AudioStreamPlayer:playing")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(-0.6, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(15, 19.4, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -24.36]
+}
+tracks/19/type = "method"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("AudioStreamPlayer")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(10.1, 14.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_stop_audio"
+}, {
+"args": [],
+"method": &"_start_audio"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1x5dp"]
+_data = {
+"Cutscene": SubResource("Animation_vfxb8")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lka4a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_fbsce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_eqwwg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goeh1"]
+atlas = ExtResource("8_dvsvp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubefd"]
+atlas = ExtResource("8_dvsvp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1lpxc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goeh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubefd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goeh1")
+}],
+"loop": true,
+"name": &"stillframe",
+"speed": 5.0
+}]
+
+[node name="Cutscene" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+top_level = true
+z_index = 4096
+z_as_relative = false
+offset_left = -1517.0
+offset_top = -5094.0
+offset_right = 38483.0
+offset_bottom = 34906.0
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["animPlayer"]]
+autoplay = "Cutscene"
+libraries = {
+"": SubResource("AnimationLibrary_1x5dp")
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="BG1" type="ParallaxLayer" parent="ParallaxBackground"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BG1"]
+modulate = Color(0.333333, 0.780392, 0.988235, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("2_gsunm")
+
+[node name="BackTrees1" type="ParallaxLayer" parent="ParallaxBackground"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackTrees1"]
+modulate = Color(0.745098, 0.937255, 0.941176, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("3_yg7m5")
+
+[node name="MidTrees1" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MidTrees1"]
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("4_jc0ym")
+
+[node name="SunRays1" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+texture_filter = 1
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SunRays1"]
+self_modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("5_bypnu")
+
+[node name="BG2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(2180, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BG2"]
+modulate = Color(0.333333, 0.780392, 0.988235, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("2_gsunm")
+
+[node name="BackTrees2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(2180, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackTrees2"]
+modulate = Color(0.745098, 0.937255, 0.941176, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("3_yg7m5")
+
+[node name="MidTrees2" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(2180, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MidTrees2"]
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("4_jc0ym")
+
+[node name="SunRays2" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+texture_filter = 1
+position = Vector2(2178, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SunRays2"]
+self_modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("5_bypnu")
+
+[node name="BG3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2178, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BG3"]
+modulate = Color(0.333333, 0.780392, 0.988235, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("2_gsunm")
+
+[node name="BackTrees3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2178, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackTrees3"]
+modulate = Color(0.745098, 0.937255, 0.941176, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("3_yg7m5")
+
+[node name="MidTrees3" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(-2178, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MidTrees3"]
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("4_jc0ym")
+
+[node name="SunRays3" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+texture_filter = 1
+position = Vector2(-2178, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SunRays3"]
+self_modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("5_bypnu")
+
+[node name="BG4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(4356, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BG4"]
+modulate = Color(0.333333, 0.780392, 0.988235, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("2_gsunm")
+
+[node name="BackTrees4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(4356, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackTrees4"]
+modulate = Color(0.745098, 0.937255, 0.941176, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("3_yg7m5")
+
+[node name="MidTrees4" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(4356, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MidTrees4"]
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("4_jc0ym")
+
+[node name="SunRays4" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(4356, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SunRays4"]
+self_modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("5_bypnu")
+
+[node name="BG5" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(6435, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BG5"]
+modulate = Color(0.333333, 0.780392, 0.988235, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("2_gsunm")
+
+[node name="BackTrees5" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(6435, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackTrees5"]
+modulate = Color(0.745098, 0.937255, 0.941176, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("3_yg7m5")
+
+[node name="MidTrees5" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(6435, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MidTrees5"]
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("4_jc0ym")
+
+[node name="SunRays5" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(6435, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SunRays5"]
+self_modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(752, -1100)
+scale = Vector2(8, 15)
+texture = ExtResource("5_bypnu")
+
+[node name="CanvasModulate" type="ColorRect" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -1500.0
+offset_top = -15000.0
+offset_right = 148500.0
+offset_bottom = 135000.0
+
+[node name="Player" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1422, -1434)
+scale = Vector2(2.4, 2.4)
+sprite_frames = SubResource("SpriteFrames_lka4a")
+autoplay = "default"
+frame_progress = 0.660984
+flip_h = true
+
+[node name="Label" type="Label" parent="Player"]
+texture_filter = 1
+offset_left = -64.584
+offset_top = -79.166
+offset_right = 2435.42
+offset_bottom = 2293.83
+scale = Vector2(0.03, 0.03)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_xdkon")
+theme_override_font_sizes/font_size = 180
+text = "Hey"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Bird" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1470, -1437)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1lpxc")
+autoplay = "default"
+
+[node name="Sqauwk1" type="Label" parent="Bird"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -40.1665
+offset_top = -13.3667
+offset_right = 110.833
+offset_bottom = 38.6333
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(35, 13)
+theme_override_fonts/font = ExtResource("8_31vsx")
+theme_override_font_sizes/font_size = 35
+text = "SQUAWK"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Squawk2" type="Label" parent="Bird"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -38.3062
+offset_top = -12.4524
+offset_right = 112.694
+offset_bottom = 39.5476
+rotation = 0.490438
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(35, 13)
+theme_override_fonts/font = ExtResource("8_31vsx")
+theme_override_font_sizes/font_size = 35
+text = "SQUAWK"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Squawk3" type="Label" parent="Bird"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -40.1665
+offset_top = -13.3667
+offset_right = 110.833
+offset_bottom = 38.6333
+rotation = -0.490438
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(35, 13)
+theme_override_fonts/font = ExtResource("8_31vsx")
+theme_override_font_sizes/font_size = 35
+text = "SQUAWK"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera2"]]
+position = Vector2(1422, -1434)
+ignore_rotation = false
+
+[node name="SpeechBubble" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(1356, -1527.4)
+scale = Vector2(0.3, 0.4)
+texture = ExtResource("9_y5abe")
+flip_h = true
+
+[node name="Tree" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1749, -1067)
+scale = Vector2(7, 7.70286)
+texture = ExtResource("1_qjl3r")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tree"]
+visible = false
+collision_layer = 12
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tree/StaticBody2D"]
+polygon = PackedVector2Array(-66.2, 174.6, -61.1, 170.4, -56.6, 165.6, -53.5, 161.5, -48.4, 155.4, -45.7, 151.4, -42.2, 147.4, -39.5, 142.3, -37.4, 138.8, -33.4, 132.5, -30, 128.5, -24, 116.4, -18.3, 99.3, -13.5, 76.7, -7.49998, 50.2, -7.59998, 28.6, -8.29997, -10.7, -9.19998, -17.8, -12, -22.2, -20.7, -34.4, -28, -37.9, -33.1, -41.9, -50.7, -42.8, -51.6, -43.7, -51.6, -44.7, -25.3, -44.7, -25.3, -43.6, 21.6, -43.5, 21.6, -42.7, 31.6, -42.7, 31.6, -41.4, 29.5, -41.6, 21.5, -34.9, 22.1, -24.9, 22.1, -19.5, 23.5, -16.8, 23.4, -5.00002, 24.2, -4.50002, 24.4, 7.29999, 23.6, 8.99998, 23.4, 29, 24.3, 28.5, 23.4, 54.9, 22, 75.2, 24.1, 97.3, 26.1, 121, 33.1, 139.3, 43.7, 158.3, 59.3, 172.7, 59.7, 174.7)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Tree/StaticBody2D"]
+polygon = PackedVector2Array(-8.59998, -51.6, 21.4, -51.5, 21.5, -62.8, 22.4, -72.6, 19.9, -113.5, 21.8, -173.5, -6.49998, -174.3, -8.99998, -115.2, -8.99998, -81.3, -8.69998, -80, -8.39998, -59.4, -8.49998, -56, -9.69998, -55.6, -8.49998, -55.2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_l2mp3")
+bus = &"Cutscene"
+script = ExtResource("13_kbiv8")

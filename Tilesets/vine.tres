@@ -1,0 +1,11 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cfthjg4jg6pbw"]
+
+[ext_resource type="Texture2D" uid="uid://cq41wkkf5s4ef" path="res://art/vineTile.png" id="1_jy5ij"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xyfeg"]
+texture = ExtResource("1_jy5ij")
+texture_region_size = Vector2i(18, 18)
+0:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_xyfeg")

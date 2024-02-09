@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://0yoos8bs4i0a"]
+
+[ext_resource type="PackedScene" uid="uid://7t8k2gri4a4d" path="res://collectable_bird.tscn" id="1_akv7c"]
+[ext_resource type="Script" path="res://first_collectable_bird.gd" id="2_dx246"]
+
+[node name="Collectable Bird" instance=ExtResource("1_akv7c")]
+script = ExtResource("2_dx246")
